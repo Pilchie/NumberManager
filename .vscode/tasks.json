@@ -31,13 +31,14 @@
             "type": "process",
             "args": [
                 "watch",
+                "--project",
+                "NumberManager.Tests/NumberManager.Tests.csproj",
                 "test",
-                "NumberManager.Tests.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
             "options": {
-                "cwd": "${workspaceFolder}/dotnet/NumberManager.Tests/"
+                "cwd": "${workspaceFolder}/dotnet/"
             },
             "problemMatcher": "$msCompile"
         }
