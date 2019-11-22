@@ -12,7 +12,7 @@ namespace NumberManager
         {
             if (_available?.Any() == true)
             {
-                var result = _available.Min();
+                var result = _available.Min;
                 _available.Remove(result);
                 return result;
             }
