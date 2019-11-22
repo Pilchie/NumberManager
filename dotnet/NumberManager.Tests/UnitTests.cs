@@ -29,6 +29,50 @@ namespace NumberManager.Tests
             Assert.Equal(1, _manager.GetNumber());
             Assert.Equal(4, _manager.GetNumber());
         }
+
+        [Fact]
+        public void Get0Get1Get2Release0Release1Get0Get1Get3()
+        {
+            Assert.Equal(0, _manager.GetNumber());
+            Assert.Equal(1, _manager.GetNumber());
+            Assert.Equal(2, _manager.GetNumber());
+            _manager.ReleaseNumber(0);
+            _manager.ReleaseNumber(1);
+            Assert.Equal(0, _manager.GetNumber());
+            Assert.Equal(1, _manager.GetNumber());
+            Assert.Equal(3, _manager.GetNumber());
+        }
+
+        [Fact]
+        public void Get0Get1Get2Release1Release0Get0Get1Get3()
+        {
+            Assert.Equal(0, _manager.GetNumber());
+            Assert.Equal(1, _manager.GetNumber());
+            Assert.Equal(2, _manager.GetNumber());
+            _manager.ReleaseNumber(1);
+            _manager.ReleaseNumber(0);
+            Assert.Equal(0, _manager.GetNumber());
+            Assert.Equal(1, _manager.GetNumber());
+            Assert.Equal(3, _manager.GetNumber());
+        }
+
+        [Fact]
+        public void Get0Get1Get2Get3Get4Release1Release3Release2Get1Get2Get3Get5()
+        {
+            Assert.Equal(0, _manager.GetNumber());
+            Assert.Equal(1, _manager.GetNumber());
+            Assert.Equal(2, _manager.GetNumber());
+            Assert.Equal(3, _manager.GetNumber());
+            Assert.Equal(4, _manager.GetNumber());
+            _manager.ReleaseNumber(1);
+            _manager.ReleaseNumber(3);
+            _manager.ReleaseNumber(2);
+            Assert.Equal(1, _manager.GetNumber());
+            Assert.Equal(2, _manager.GetNumber());
+            Assert.Equal(3, _manager.GetNumber());
+            Assert.Equal(5, _manager.GetNumber());
+        }
+
     }
 
     public class BitArrayNumberManagerTests : UnitTests
@@ -59,6 +103,14 @@ namespace NumberManager.Tests
     {
         public SortedSetNumberManagerTests()
             : base(new SortedSetNumberManager())
+        {
+        }
+    }
+
+    public class SortedSetOfRangeNumberManagerTests : UnitTests
+    {
+        public SortedSetOfRangeNumberManagerTests()
+            : base(new SortedSetOfRangeNumberManager())
         {
         }
     }
