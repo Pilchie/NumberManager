@@ -6,7 +6,7 @@ namespace NumberManager.Tests
     public abstract class UnitTests
     {
         INumberManager _manager;
-        
+
         protected UnitTests(INumberManager manager)
         {
             _manager = manager;
@@ -51,6 +51,14 @@ namespace NumberManager.Tests
     {
         public HashSetNumberManagerTests()
             : base(new HashSetNumberManager())
+        {
+        }
+    }
+
+    public class SortedSetNumberManagerTests : UnitTests
+    {
+        public SortedSetNumberManagerTests()
+            : base(new SortedSetNumberManager())
         {
         }
     }
