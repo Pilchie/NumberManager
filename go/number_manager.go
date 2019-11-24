@@ -2,7 +2,8 @@ package main
 
 import (
 	"errors"
-	"math")
+	"math"
+)
 
 type NumberManager interface {
 	GetNumber() (int, error)
@@ -14,7 +15,7 @@ type MapNumberManager struct {
 }
 
 func (nm *MapNumberManager) GetNumber() (int, error) {
-	if (nm.numbers == nil) {
+	if nm.numbers == nil {
 		nm.numbers = make(map[int]bool)
 	}
 	for i := 0; i < math.MaxInt32; i++ {

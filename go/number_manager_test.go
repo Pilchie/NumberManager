@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
-	"testing")
+	"testing"
+)
 
 func TestGetReturnsZero(t *testing.T) {
 	fmt.Println("TestGetReturnsZero")
 
-	var nm NumberManager = &MapNumberManager { }
+	var nm NumberManager = &MapNumberManager{}
 
 	verifyGet(t, nm, 0)
 }
@@ -15,7 +16,7 @@ func TestGetReturnsZero(t *testing.T) {
 func TestGet0Get1Get2Get3Release1Get1Get4(t *testing.T) {
 	fmt.Println("TestGet0Get1Get2Get3Release1Get1Get4")
 
-	var nm NumberManager = &MapNumberManager { }
+	var nm NumberManager = &MapNumberManager{}
 
 	verifyGet(t, nm, 0)
 	verifyGet(t, nm, 1)
@@ -29,7 +30,7 @@ func TestGet0Get1Get2Get3Release1Get1Get4(t *testing.T) {
 func TestGet0Get1Get2Release0Release1Get1Get3(t *testing.T) {
 	fmt.Println("TestGet0Get1Get2Release0Release1Get1Get3")
 
-	var nm NumberManager = &MapNumberManager { }
+	var nm NumberManager = &MapNumberManager{}
 
 	verifyGet(t, nm, 0)
 	verifyGet(t, nm, 1)
@@ -44,7 +45,7 @@ func TestGet0Get1Get2Release0Release1Get1Get3(t *testing.T) {
 func TestGet0Get1Get2Release1Release0Get1Get3(t *testing.T) {
 	fmt.Println("TestGet0Get1Get2Release1Release0Get1Get3")
 
-	var nm NumberManager = &MapNumberManager { }
+	var nm NumberManager = &MapNumberManager{}
 
 	verifyGet(t, nm, 0)
 	verifyGet(t, nm, 1)
@@ -59,7 +60,7 @@ func TestGet0Get1Get2Release1Release0Get1Get3(t *testing.T) {
 func TestGet0Get1Get2Get3Get4Release1Release3Release2Get1Get2Get3Get5(t *testing.T) {
 	fmt.Println("TestGet0Get1Get2Get3Get4Release1Release3Release2Get1Get2Get3Get5")
 
-	var nm NumberManager = &MapNumberManager { }
+	var nm NumberManager = &MapNumberManager{}
 
 	verifyGet(t, nm, 0)
 	verifyGet(t, nm, 1)
@@ -79,11 +80,11 @@ func TestGet0Get1Get2Get3Get4Release1Release3Release2Get1Get2Get3Get5(t *testing
 
 func verifyGet(t *testing.T, nm NumberManager, expected int) {
 	actual, err := nm.GetNumber()
-	if (err != nil) {
+	if err != nil {
 		t.Fatalf("Error from GetNumber(), %v", err)
 	}
 
-	if (actual != expected) {
+	if actual != expected {
 		t.Fatalf("Expected: %d, Actual: %d", expected, actual)
 	}
 }
