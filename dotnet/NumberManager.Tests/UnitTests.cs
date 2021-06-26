@@ -114,4 +114,12 @@ namespace NumberManager.Tests
         {
         }
     }
+
+    public class TreeOfRangeNumberManagerTests : UnitTests
+    {
+        public TreeOfRangeNumberManagerTests()
+            : base(new TreeOfRangeNumberManager())
+        {
+        }
+    }
 }

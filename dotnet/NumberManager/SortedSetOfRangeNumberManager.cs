@@ -6,28 +6,6 @@ namespace NumberManager
 {
     public class SortedSetOfRangeNumberManager : INumberManager
     {
-        private readonly struct Range : IComparable<Range>
-        {
-            public readonly int Start;
-            public readonly int Length;
-
-            public Range(int start, int length)
-            {
-                this.Start = start;
-                this.Length = length;
-            }
-
-            public int CompareTo(Range other)
-            {
-                return Start - other.Start;
-            }
-
-            public override string ToString()
-            {
-                return $"({Start}, {Length})";
-            }
-        }
-
         private readonly SortedSet<Range> _available = new(new[] { new Range(0, int.MaxValue) });
 
         public int GetNumber()
