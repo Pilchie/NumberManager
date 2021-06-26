@@ -5,7 +5,7 @@ namespace NumberManager
 {
     public class HashSetNumberManager : INumberManager
     {
-        private HashSet<int> _numbers = new HashSet<int>();
+        private readonly HashSet<int> _numbers = new();
         
         public int GetNumber()
         {

@@ -6,8 +6,8 @@ namespace NumberManager
 {
     public class BitVector32NumberManager : INumberManager
     {
-        List<BitVector32> _bits = new List<BitVector32>();
-        int[] _masks = new int[32];
+        readonly List<BitVector32> _bits = new();
+        readonly int[] _masks = new int[32];
 
         public BitVector32NumberManager()
         {

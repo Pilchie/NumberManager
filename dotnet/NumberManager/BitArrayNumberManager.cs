@@ -4,7 +4,7 @@ namespace NumberManager
 {
     public class BitArrayNumberManager : INumberManager
     {
-        BitArray _bits = new BitArray(0);
+        readonly BitArray _bits = new(0);
 
         public int GetNumber()
         {

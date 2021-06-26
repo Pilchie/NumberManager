@@ -31,7 +31,7 @@ namespace NumberManager
                 return;
             }
 
-            _available = _available ?? new SortedSet<int>();
+            _available ??= new SortedSet<int>();
             _available.Add(number);
         }
     }

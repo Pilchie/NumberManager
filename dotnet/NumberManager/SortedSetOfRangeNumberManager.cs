@@ -28,7 +28,7 @@ namespace NumberManager
             }
         }
 
-        private readonly SortedSet<Range> _available = new SortedSet<Range>(new[] { new Range(0, int.MaxValue) });
+        private readonly SortedSet<Range> _available = new(new[] { new Range(0, int.MaxValue) });
 
         public int GetNumber()
         {

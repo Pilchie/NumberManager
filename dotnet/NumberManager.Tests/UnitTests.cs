@@ -5,7 +5,7 @@ namespace NumberManager.Tests
 {
     public abstract class UnitTests
     {
-        INumberManager _manager;
+        readonly INumberManager _manager;
 
         protected UnitTests(INumberManager manager)
         {
