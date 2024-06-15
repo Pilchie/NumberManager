@@ -3,4 +3,5 @@
 
 members = [
     "rust/number_manager",
+    "rust/number_manager_web",
 ]
