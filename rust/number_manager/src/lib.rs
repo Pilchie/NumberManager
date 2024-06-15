@@ -1,4 +1,5 @@
 use std::collections::BinaryHeap;
+use std::cmp::Reverse;
 
 pub trait NumberManager {
     fn get_number(&mut self) -> i32;
@@ -6,7 +7,7 @@ pub trait NumberManager {
 }
 
 pub struct BinaryHeapNumberManager {
-    heap: BinaryHeap<i32>,
+    heap: BinaryHeap<Reverse<i32>>,
     max: i32,
 }
 
@@ -21,7 +22,7 @@ impl BinaryHeapNumberManager {
 
 impl NumberManager for BinaryHeapNumberManager {
     fn get_number(&mut self) -> i32 {
-        if let Some(number) = self.heap.pop() {
+        if let Some(Reverse(number)) = self.heap.pop() {
             number
         } else {
             self.max += 1;
@@ -33,7 +34,7 @@ impl NumberManager for BinaryHeapNumberManager {
         if number == self.max {
             self.max -= 1;
         } else {
-            self.heap.push(number);
+            self.heap.push(Reverse(number));
         }
     }
 }

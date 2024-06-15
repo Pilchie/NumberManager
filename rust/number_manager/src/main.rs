@@ -26,4 +26,21 @@ mod tests {
         assert_eq!(mgr.get_number(), 3);
         assert_eq!(mgr.get_number(), 4);
     }
+
+    #[test]
+    fn test_two_from_heap() {
+        let mut mgr = BinaryHeapNumberManager::new();
+
+        assert_eq!(mgr.get_number(), 1);
+        assert_eq!(mgr.get_number(), 2);
+        assert_eq!(mgr.get_number(), 3);
+        assert_eq!(mgr.get_number(), 4);
+
+        mgr.release_number(2);
+        mgr.release_number(3);
+
+        assert_eq!(mgr.get_number(), 2);
+        assert_eq!(mgr.get_number(), 3);
+        assert_eq!(mgr.get_number(), 5);
+    }
 }
