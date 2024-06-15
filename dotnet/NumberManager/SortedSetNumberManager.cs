@@ -5,7 +5,7 @@ namespace NumberManager
 {
     public class SortedSetNumberManager : INumberManager
     {
-        private SortedSet<int> _available;
+        private SortedSet<int>? _available;
         private int _max = 0;
 
         public int GetNumber()

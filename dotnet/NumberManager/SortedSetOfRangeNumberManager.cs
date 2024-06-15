@@ -31,7 +31,7 @@ namespace NumberManager
                     if (cur.Start == number + 1 &&
                         prev?.Start + prev?.Length + 1 == number)
                     {
-                        _available.Remove(prev.Value);
+                        _available.Remove(prev!.Value);
                         _available.Remove(cur);
                         _available.Add(new Range(prev.Value.Start, prev.Value.Length + 1 + cur.Length));
                     }

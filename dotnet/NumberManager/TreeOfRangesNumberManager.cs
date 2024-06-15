@@ -84,7 +84,7 @@ namespace NumberManager
             root = Respine(spine, n);
         }
 
-        private static RangeNode Respine(Stack<(RangeNode, Direction)> spine, RangeNode n)
+        private static RangeNode Respine(Stack<(RangeNode, Direction)> spine, RangeNode? n)
         {
             // TODO: Figure out how to keep the tree balanced
             while (spine.Any())
@@ -99,6 +99,12 @@ namespace NumberManager
                     n = RangeNode.New(p.Range, p.LeftChild, n);
                 }
             }
+
+            if (n == null)
+            {
+                throw new InvalidOperationException();
+            }
+
             return n;
         }
 
@@ -111,9 +117,9 @@ namespace NumberManager
         [DebuggerDisplay("{Range}")]
         private abstract class RangeNode
         {
-            public abstract RangeNode LeftChild { get; }
+            public abstract RangeNode? LeftChild { get; }
 
-            public abstract RangeNode RightChild { get; }
+            public abstract RangeNode? RightChild { get; }
 
             public Range Range { get; }
 
@@ -122,7 +128,7 @@ namespace NumberManager
                 this.Range = range;
             }
 
-            public static RangeNode New(Range range, RangeNode leftChild = null, RangeNode rightChild = null)
+            public static RangeNode New(Range range, RangeNode? leftChild = null, RangeNode? rightChild = null)
             {
                 if (leftChild == null && rightChild == null)
                 {
@@ -141,21 +147,21 @@ namespace NumberManager
                 {
                 }
 
-                public override RangeNode LeftChild => null;
-                public override RangeNode RightChild => null;
+                public override RangeNode? LeftChild => null;
+                public override RangeNode? RightChild => null;
             }
 
             private class InteriorNode : RangeNode
             {
-                public InteriorNode(Range range, RangeNode leftChild, RangeNode rightChild)
+                public InteriorNode(Range range, RangeNode? leftChild, RangeNode? rightChild)
                     : base(range)
                 {
                     LeftChild = leftChild;
                     RightChild = rightChild;
                 }
 
-                public override RangeNode LeftChild { get; }
-                public override RangeNode RightChild { get; }
+                public override RangeNode? LeftChild { get; }
+                public override RangeNode? RightChild { get; }
             }
         }
     }
